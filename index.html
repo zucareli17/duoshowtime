@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Filmes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+       
+        <section id="tela-login" class="tela ativa">
+            <div class="login-container">
+                <h2>Bem-vindo ao App</h2>
+                <p>Identifique-se para ver suas listas</p>
+                
+                <div class="input-group">
+                    <input type="text" id="input-nome" placeholder="Qual o seu nome?">
+                </div>
+                
+                <button class="btn-primary" onclick="fazerLogin()">Entrar</button>
+            </div>
+        </section>
+
+        
+        <section id="tela-inicio" class="tela oculta">
+            <header class="top-header">
+                <div>
+                    <h1 id="saudacao-usuario">Olá, Usuário</h1>
+                    <button class="btn-text-red" onclick="sair()">Sair da conta</button>
+                </div>
+                <div id="avatar-usuario" class="avatar-circle">U</div>
+            </header>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar filme ou série">
+            </div>
+
+            <div class="card card-ia" onclick="navegarPara('tela-ia')">
+                <strong>Sem ideia do que ver?</strong>
+                <p>Peça uma sugestão à IA</p>
+            </div>
+
+            <h2>Suas listas</h2>
+            
+            <p class="empty-msg">Você ainda não tem listas.</p>
+            
+            <button class="btn-outline">+ Nova lista ou convidar</button>
+        </section>
+
+        <section id="tela-lista" class="tela oculta">
+            <header class="top-header">
+                <button class="btn-back" onclick="navegarPara('tela-inicio')">&lt;</button>
+                <h2>Nova Lista</h2>
+                <div class="avatar-group">+</div>
+            </header>
+
+            <div class="filters">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Filmes</button>
+                <button class="filter-btn">Séries</button>
+                <button class="filter-btn">Vistos</button>
+            </div>
+
+            <div id="lista-conteudo"></div>
+
+            <button class="btn-floating">O que a gente vê hoje?</button>
+        </section>
+
+        <section id="tela-chat" class="tela oculta">
+            <header class="top-header">
+                <button class="btn-back" onclick="navegarPara('tela-inicio')">&lt;</button>
+                <h2>Chat</h2>
+            </header>
+
+            <div id="chat-mensagens" class="chat-container">
+            </div>
+
+            <div class="chat-input-area">
+                <button class="btn-attach">+</button>
+                <input type="text" id="input-mensagem" placeholder="Mensagem...">
+                <button class="btn-send" onclick="enviarMensagem()">Enviar</button>
+            </div>
+        </section>
+
+        <section id="tela-detalhes" class="tela oculta"></section>
+        <section id="tela-ia" class="tela oculta"></section>
+
+        <nav class="bottom-nav">
+            <button class="nav-btn" onclick="navegarPara('tela-inicio')">Listas</button>
+            <button class="nav-btn" onclick="navegarPara('tela-ia')">IA</button>
+            <button class="nav-btn" onclick="navegarPara('tela-chat')">Chat</button>
+            <button class="nav-btn">Perfil</button>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
